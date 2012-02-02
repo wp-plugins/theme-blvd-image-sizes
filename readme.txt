@@ -17,7 +17,7 @@ This plugin is mainly designed for non-developers who feel they need to alter th
 
 = How does this plugin work? =
 
-As in any WordPress theme, we setup the image sizes by using WordPress's [add_image_size](http://codex.wordpress.org/Function_Reference/add_image_size "add_image_size function") function for each crop size. In the version 2.0.5 update to the Theme Blvd framework, we adjusted how we call the add_image_size function by first putting all image sizes into an array, which we applied the filter: *themeblvd_image_sizes*
+As in any WordPress theme, we setup the image sizes by using WordPress's *add_image_size* function for each crop size. In the version 2.0.5 update to the Theme Blvd framework, we adjusted how we call the add_image_size function by first putting all image sizes into an array, which we applied the filter: *themeblvd_image_sizes*
 
 This allows for all of the image sizes of the theme to easily be filtered from your child theme or from a plugin... and this would be an example of a plugin that utilizes that. :-)
 
