@@ -36,7 +36,7 @@ If you'd like to dive into a little development action, and accomplish the gist 
 }
 add_filter( 'themeblvd_image_sizes', 'my_image_sizes' );`
 
-*Note: To see all current image sizes of the theme you're using simply look in the first function in functions.php of the theme you're using. This function will be named {theme_name}_setup. Remember that while it may be tempting, never make any changes directly to theme files and always make your customizations from a child theme plugin.*
+*Note: To see all current image sizes of the theme you're using simply look in the first function in functions.php of the theme you're using. This function will be named {theme_name}_setup. Remember that while it may be tempting, never make any changes directly to theme files and always make your customizations from a child theme or plugin.*
 
 = Warning! =
 
