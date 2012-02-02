@@ -27,14 +27,14 @@ Absolutely not. In fact, if you understand the basics of PHP and the WordPress f
 
 If you'd like to dive into a little development action, and accomplish the gist of what this plugin does, you'd simply do something like this from your child theme:
 
-‘function my_image_sizes( $sizes ) {
+`function my_image_sizes( $sizes ) {
 	$sizes['slider-large'] = array(
 		'width' => '960', // Your new width
 		'height' => '350' // Your new height
 	);
 	return $sizes;
 }
-add_filter( 'themeblvd_image_sizes', 'my_image_sizes' );’
+add_filter( 'themeblvd_image_sizes', 'my_image_sizes' );`
 
 *Note: To see all current image sizes of the theme you're using simply look in the first function in functions.php of the theme you're using. This function will be named {theme_name}_setup. Remember that while it may be tempting, never make any changes directly to theme files and always make your customizations from a child theme plugin.*
 
