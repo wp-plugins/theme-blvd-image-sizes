@@ -38,16 +38,6 @@ add_filter( 'themeblvd_image_sizes', 'my_image_sizes' );`
 
 *Note: To see all current image sizes of the theme you're using simply look in the first function in functions.php of the theme you're using. This function will be named {theme_name}_setup. Remember that while it may be tempting, never make any changes directly to theme files and always make your customizations via a child theme or plugin.*
 
-= Warning! =
-
-**By using this plugin, you are choosing to *customize* the theme you're using and we cannot guarantee that everything is going to work perfectly.**
-
-When we setup the crop sizes for each theme, there are many factors involved that are unique to both the Theme Blvd framework and the design of the current theme. We put a lot of thought into making these crop sizes work perfectly in just about every scenario that the images will get used. We do not suggest that you alter the crop sizes of the current theme you're using, however we have provided this plugin for those that feel they absolutely must.
-
-We have done our best to provide you with sufficient information and documentation within this plugin. However, since changing these crop sizes are customizations you are making to the theme, guiding you through how to make these image size changes is not a part of the free theme support that we provide. So, edit at your own risk!
-
-Our Support Policy: <http://www.themeblvd.com/support>
-
 == Installation ==
 
 1. Upload `theme-blvd-image-sizes` folder to the `/wp-content/plugins/` directory
