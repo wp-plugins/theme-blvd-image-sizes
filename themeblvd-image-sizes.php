@@ -2,7 +2,7 @@
 /*
 Plugin Name: Theme Blvd Image Sizes
 Description: 
-Version: 1.0.0
+Version: 1.0.1
 Author: Jason Bobich
 Author URI: http://jasonbobich.com
 License: GPL2
@@ -113,7 +113,7 @@ function tb_image_sizes_get_options() {
 	
 	$options[] = array(
 		'name'	=> 'Full-Width Slide Images',
-		'desc'	=> __( '<p>This size applies to images used in full-width slides of your sliders. If your slider consists of only full-width image slides, this image size will <em>generally</em> determine the height.</p><p><strong>WARNING:</strong> When this size was originally created, it was targeted for the maximum size of a slider. This is imperative because sliders can get used in so many places with different widths within your current theme\'s responsive structure. So, for example, when you use the slider within the content of a 2-column page, the size will not actually be what you designate here, but will be shrinked down proportinally. Edit at your own risk!</p><p><strong>Internal ID:</strong> slider-large<br><strong>Theme\'s Default Size:</strong> '.$defaults['slider-large']['width'].'x'.$defaults['slider-large']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>This size applies to images used in full-width slides of your sliders. If your slider consists of only full-width image slides, this image size will <em>generally</em> determine the height.</p><p><strong>WARNING:</strong> When this size was originally created, it was targeted for the maximum size of a slider. This is imperative because sliders can get used in so many places with different widths within your current theme\'s responsive structure. So, for example, when you use the slider within the content of a 2-column page, the size will not actually be what you designate here, but will be shrinked down proportinally. Edit at your own risk!</p><p><strong>Internal ID:</strong> slider-large<br><strong>Current Image Size:</strong> '.$defaults['slider-large']['width'].'x'.$defaults['slider-large']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
@@ -146,7 +146,7 @@ function tb_image_sizes_get_options() {
 	
 	$options[] = array(
 		'name'	=> 'Staged Slide Images',
-		'desc'	=> __( '<p>This size applies to images used in slides of your sliders with staged images (i.e. images aligned right or left). <em>Generally</em> when we design the height of the slider, we base it around the proportional size of the full-width slide image size from above. This staged image size can also vary from theme-to-theme depending on the theme\'s CSS stylings of the slider.</p><p><strong>WARNING:</strong> When this size was originally created, it was targeted for the maximum size of a slider and also designed to compensate both the theme\'s slider CSS along with the dimensions of the full-width slide image size from above. This is all imperative because sliders can get used in so many places with different widths within your current theme\'s responsive structure. So, for example, when you use the slider within the content of a 2-column page, the size will not actually be what you designate here, but will be shrinked down proportinally. This all makes editing this size even trickier than the full-width size above; so again, edit at your own risk!</p><p><strong>Internal ID:</strong> slider-staged<br><strong>Theme\'s Default Size:</strong> '.$defaults['slider-staged']['width'].'x'.$defaults['slider-staged']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>This size applies to images used in slides of your sliders with staged images (i.e. images aligned right or left). <em>Generally</em> when we design the height of the slider, we base it around the proportional size of the full-width slide image size from above. This staged image size can also vary from theme-to-theme depending on the theme\'s CSS stylings of the slider.</p><p><strong>WARNING:</strong> When this size was originally created, it was targeted for the maximum size of a slider and also designed to compensate both the theme\'s slider CSS along with the dimensions of the full-width slide image size from above. This is all imperative because sliders can get used in so many places with different widths within your current theme\'s responsive structure. So, for example, when you use the slider within the content of a 2-column page, the size will not actually be what you designate here, but will be shrinked down proportinally. This all makes editing this size even trickier than the full-width size above; so again, edit at your own risk!</p><p><strong>Internal ID:</strong> slider-staged<br><strong>Current Image Size:</strong> '.$defaults['slider-staged']['width'].'x'.$defaults['slider-staged']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
@@ -188,7 +188,7 @@ function tb_image_sizes_get_options() {
 	
 	$options[] = array(
 		'name'	=> '1/5 Columns',
-		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/5. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_fifth_1<br><strong>Theme\'s Default Size:</strong> '.$defaults['grid_fifth_1']['width'].'x'.$defaults['grid_fifth_1']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/5. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_fifth_1<br><strong>Current Image Size:</strong> '.$defaults['grid_fifth_1']['width'].'x'.$defaults['grid_fifth_1']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
@@ -221,7 +221,7 @@ function tb_image_sizes_get_options() {
 	
 	$options[] = array(
 		'name'	=> '1/4 Columns',
-		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/4. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_3<br><strong>Theme\'s Default Size:</strong> '.$defaults['grid_3']['width'].'x'.$defaults['grid_3']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/4. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_3<br><strong>Current Image Size:</strong> '.$defaults['grid_3']['width'].'x'.$defaults['grid_3']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
@@ -254,7 +254,7 @@ function tb_image_sizes_get_options() {
 	
 	$options[] = array(
 		'name'	=> '1/3 Columns',
-		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/3. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_4<br><strong>Theme\'s Default Size:</strong> '.$defaults['grid_4']['width'].'x'.$defaults['grid_4']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/3. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_4<br><strong>Current Image Size:</strong> '.$defaults['grid_4']['width'].'x'.$defaults['grid_4']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
@@ -287,7 +287,7 @@ function tb_image_sizes_get_options() {
 	
 	$options[] = array(
 		'name'	=> '1/2 Columns',
-		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/2. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_6<br><strong>Theme\'s Default Size:</strong> '.$defaults['grid_6']['width'].'x'.$defaults['grid_6']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>This size applies to images used in columns that are set as 1/2. Keep in mind that because of the responsive structure of your theme and the virtually infinite possibilities of setting up columns, your images of this size will rarely show at the the exact dimensions that you enter here. However, they will always be scaled proportionally to the dimensions you set here.</p><p><strong>Internal ID:</strong> grid_6<br><strong>Current Image Size:</strong> '.$defaults['grid_6']['width'].'x'.$defaults['grid_6']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
@@ -327,7 +327,7 @@ function tb_image_sizes_get_options() {
 	);
 	$options[] = array(
 		'name'	=> 'Small Thumbnails',
-		'desc'	=> __( '<p>When you setup a standard Post List or you\'re dealing with single posts, and in your options you select to show "small thumbnails" this is the size that will get used. Unlike the other image sizes in this plugin, this image size will show the true image dimensions without scaling in most scenarios.</p><p><strong>Internal ID:</strong> small<br><strong>Theme\'s Default Size:</strong> '.$defaults['small']['width'].'x'.$defaults['small']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>When you setup a standard Post List or you\'re dealing with single posts, and in your options you select to show "small thumbnails" this is the size that will get used. Unlike the other image sizes in this plugin, this image size will show the true image dimensions without scaling in most scenarios.</p><p><strong>Internal ID:</strong> small<br><strong>Current Image Size:</strong> '.$defaults['small']['width'].'x'.$defaults['small']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
@@ -533,10 +533,6 @@ function tb_image_sizes_page() {
 	// global $_wp_additional_image_sizes;
 	// echo '<pre>'; print_r($_wp_additional_image_sizes); echo '</pre>';
 	
-	// Get the theme name so we can display it up top
-	$theme_data = get_theme_data(STYLESHEETPATH . '/style.css');
-	$footer_text = apply_filters( 'themeblvd_options_footer_text', $theme_data['Title'].' <strong>'.$theme_data['Version'].'</strong> with Theme Blvd Framework <strong>'.TB_FRAMEWORK_VERSION.'</strong>' );
-	
 	// Build form
 	$options = tb_image_sizes_get_options();
 	$settings = get_option('tb_image_sizes');
@@ -562,8 +558,7 @@ function tb_image_sizes_page() {
 						</div><!-- #optionsframework-submit (end) -->
 					</form>
 					<div class="tb-footer-text">
-						<?php echo $footer_text; ?>
-						( <a href="<?php echo TB_UPDATE_LOG_URL; ?>?TB_iframe=1" target="_blank" class="thickbox tb-update-log" onclick="return false;"><?php _e( 'Changelog', TB_GETTEXT_DOMAIN ); ?></a> )
+						<?php do_action( 'themeblvd_options_footer_text' ); ?>
 					</div><!-- .tb-footer-text (end) -->
 				</div><!-- #optionsframework (end) -->
 			</div><!-- .metabox-holder (end) -->
@@ -588,7 +583,7 @@ function tb_image_sizes_apply_changes( $sizes ) {
 	
 	// Get current settings
 	$settings = get_option('tb_image_sizes');
-	
+
 	// Full Width Image Slides
 	
 	if( isset( $settings['sliderlarge_width'] ) && $settings['sliderlarge_width'] )
@@ -693,7 +688,7 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		else if( $settings['small_crop'] == 'false' )
 			$sizes['small']['crop'] = false;
 	}
-	
+
 	return $sizes;
 }
-add_filter( 'themeblvd_image_sizes', 'tb_image_sizes_apply_changes' );
+add_filter( 'themeblvd_image_sizes', 'tb_image_sizes_apply_changes', 999 );
