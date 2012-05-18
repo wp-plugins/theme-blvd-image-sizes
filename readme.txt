@@ -53,8 +53,8 @@ add_filter( 'themeblvd_image_sizes', 'my_image_sizes' );`
 = 1.0.1 =
 
 * Added high priority to filter so it happens after the theme runs. This is needed in conjunction with the [Theme Blvd Framework 2.1 update](http://www.wpjumpstart.com/framework-updates/theme-blvd-2-1-0-framework-update/).
-* On options page, adjusted changelog link at bottom to match Theme Blvd 2.1 framework's slightly modified styling.
-* On options page, xhanged "Default Theme's Size" string to say "Current Image Size" as it actually reflects what the current image size is set to.
+* On options page, adjusted changelog link at bottom to match Theme Blvd 2.1 framework's slightly modified format.
+* On options page, changed "Default Theme's Size" string to say "Current Image Size" as it actually reflects what the current image size is set to.
 
 = 1.0.0 =
 
