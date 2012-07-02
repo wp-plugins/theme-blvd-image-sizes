@@ -2,7 +2,7 @@
 /*
 Plugin Name: Theme Blvd Image Sizes
 Description: 
-Version: 1.0.1
+Version: 1.0.2
 Author: Jason Bobich
 Author URI: http://jasonbobich.com
 License: GPL2
@@ -70,9 +70,9 @@ function tb_image_sizes_get_defaults() {
 			'width' => $_wp_additional_image_sizes['grid_6']['width'],
 			'height' => $_wp_additional_image_sizes['grid_6']['height']
 		),
-		'small' => array(
-			'width' => $_wp_additional_image_sizes['small']['width'],
-			'height' => $_wp_additional_image_sizes['small']['height']
+		'tb_small' => array(
+			'width' => $_wp_additional_image_sizes['tb_small']['width'],
+			'height' => $_wp_additional_image_sizes['tb_small']['height']
 		)
 	);
 	// Set crop modes
@@ -315,7 +315,6 @@ function tb_image_sizes_get_options() {
 	$options[] = array(
 		'type' => 'section_end'
 	);
-
 	
 	/*-------------------------------------------------------*/
 	/* Thumbnails
@@ -327,28 +326,28 @@ function tb_image_sizes_get_options() {
 	);
 	$options[] = array(
 		'name'	=> 'Small Thumbnails',
-		'desc'	=> __( '<p>When you setup a standard Post List or you\'re dealing with single posts, and in your options you select to show "small thumbnails" this is the size that will get used. Unlike the other image sizes in this plugin, this image size will show the true image dimensions without scaling in most scenarios.</p><p><strong>Internal ID:</strong> small<br><strong>Current Image Size:</strong> '.$defaults['small']['width'].'x'.$defaults['small']['height'].'</p>', 'themeblvd' ),
+		'desc'	=> __( '<p>When you setup a standard Post List or you\'re dealing with single posts, and in your options you select to show "small thumbnails" this is the size that will get used. Unlike the other image sizes in this plugin, this image size will show the true image dimensions without scaling in most scenarios.</p><p><strong>Internal ID:</strong> small<br><strong>Current Image Size:</strong> '.$defaults['tb_small']['width'].'x'.$defaults['tb_small']['height'].'</p>', 'themeblvd' ),
 		'type' 	=> 'section_start'
 	);
 	$options[] = array(
 		'name' 	=> 'Width',
 		'desc' 	=> 'Insert a width in pixels.',
-		'id' 	=> 'small_width',
-		'std' 	=> $defaults['small']['width'],
+		'id' 	=> 'tb_small_width',
+		'std' 	=> $defaults['tb_small']['width'],
 		'type' 	=> 'text'
 	);
 	$options[] = array(
 		'name' 	=> 'Height',
 		'desc' 	=> 'Insert a height in pixels.',
-		'id' 	=> 'small_height',
-		'std' 	=> $defaults['small']['height'],
+		'id' 	=> 'tb_small_height',
+		'std' 	=> $defaults['tb_small']['height'],
 		'type' 	=> 'text'
 	);
 	$options[] = array(
 		'name' 	=> 'Crop Mode',
 		'desc' 	=> 'Select the crop mode for this image size. This is generally the one soft-cropped image size we setup and it\'s definitely okay to change this to hard crop mode. Click the <em>Help</em> tab above to learn more about crop modes.',
-		'id' 	=> 'small_crop',
-		'std' 	=> $defaults['small']['crop'],
+		'id' 	=> 'tb_small_crop',
+		'std' 	=> $defaults['tb_small']['crop'],
 		'type' 	=> 'select',
 		'options' => $crop_modes
 	);
@@ -676,17 +675,17 @@ function tb_image_sizes_apply_changes( $sizes ) {
 	
 	// Small Thumbs
 	
-	if( isset( $settings['small_width'] ) && $settings['small_width'] )
-		$sizes['small']['width'] = $settings['small_width'];
+	if( isset( $settings['tb_small_width'] ) && $settings['tb_small_width'] )
+		$sizes['tb_small']['width'] = $settings['tb_small_width'];
 		
-	if( isset( $settings['small_height'] ) && $settings['small_height'] )
-		$sizes['small']['height'] = $settings['small_height'];
+	if( isset( $settings['tb_small_height'] ) && $settings['tb_small_height'] )
+		$sizes['tb_small']['height'] = $settings['tb_small_height'];
 	
-	if( isset( $settings['small_crop'] ) ) {
-		if( $settings['small_crop'] == 'true' )
-			$sizes['small']['crop'] = true;
-		else if( $settings['small_crop'] == 'false' )
-			$sizes['small']['crop'] = false;
+	if( isset( $settings['tb_small_crop'] ) ) {
+		if( $settings['tb_small_crop'] == 'true' )
+			$sizes['tb_small']['crop'] = true;
+		else if( $settings['tb_small_crop'] == 'false' )
+			$sizes['tb_small']['crop'] = false;
 	}
 
 	return $sizes;
