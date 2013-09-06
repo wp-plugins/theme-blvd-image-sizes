@@ -2,7 +2,7 @@
 Contributors: themeblvd
 Tags: themeblvd, images, add_image_size, crop
 Requires at least: Theme Blvd Framework 2.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 When using a theme with Theme Blvd framework version 2.1+, this plugin is will allow to change your theme's image sizes.
 
@@ -47,6 +47,11 @@ add_filter( 'themeblvd_image_sizes', 'my_image_sizes' );`
 2. Contextual help included with plugin.
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Added control for Mini Post Grid/List thumbnail sizes.
+* Fixed issue with "Current Image Size" not showing for each image section.
 
 = 1.0.3 =
 
