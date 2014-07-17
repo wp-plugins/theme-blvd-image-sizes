@@ -2,7 +2,7 @@
 /*
 Plugin Name: Theme Blvd Image Sizes
 Description: Adjust the image crop sizes in a Theme Blvd theme through your WordPress admin.
-Version: 1.0.4
+Version: 1.0.5
 Author: Jason Bobich
 Author URI: http://jasonbobich.com
 License: GPL2
@@ -25,7 +25,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define( 'TB_IMAGE_SIZES_PLUGIN_VERSION', '1.0.4' );
+define( 'TB_IMAGE_SIZES_PLUGIN_VERSION', '1.0.5' );
 define( 'TB_IMAGE_SIZES_PLUGIN_DIR', dirname( __FILE__ ) );
 define( 'TB_IMAGE_SIZES_PLUGIN_URI', plugins_url( '' , __FILE__ ) );
 
@@ -130,8 +130,21 @@ function tb_image_sizes_get_options() {
 
 	// Crop mode options
 	$crop_modes = array(
-		'true' => 'Hard Crop',
-		'false' => 'Soft Crop'
+		'true' 		=> __('Hard Crop'),
+		'false' 	=> __('Soft Crop'),
+		'custom'	=> __('Custom')
+	);
+
+	$crop_positions_x = array(
+		'center' 	=> __('Center'),
+		'left' 		=> __('Left'),
+		'right'		=> __('Right')
+	);
+
+	$crop_positions_y = array(
+		'center' 	=> __('Center'),
+		'top' 		=> __('Top'),
+		'bottom'	=> __('Bottom')
 	);
 
 	/*-------------------------------------------------------*/
@@ -165,12 +178,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
 		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'slider-large_crop',
 		'std' 	=> $defaults['slider-large']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'slider-large_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'slider-large_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -198,12 +237,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
 		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'slider-staged_crop',
 		'std' 	=> $defaults['slider-staged']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'slider-staged_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'slider-staged_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -240,12 +305,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
 		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'grid_fifth_1_crop',
 		'std' 	=> $defaults['grid_fifth_1']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'grid_fifth_1_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'grid_fifth_1_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -273,12 +364,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
 		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'grid_3_crop',
 		'std' 	=> $defaults['grid_3']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'grid_3_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'grid_3_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -306,12 +423,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
 		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'grid_4_crop',
 		'std' 	=> $defaults['grid_4']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'grid_4_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'grid_4_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -339,12 +482,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
 		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'grid_6_crop',
 		'std' 	=> $defaults['grid_6']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'grid_6_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'grid_6_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -378,12 +547,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
-		'desc' 	=> __( 'Select the crop mode for this image size. This is generally the one soft-cropped image size we setup and it\'s definitely okay to change this to hard crop mode. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'tb_small_crop',
 		'std' 	=> $defaults['tb_small']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'tb_small_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'tb_small_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -420,12 +615,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
-		'desc' 	=> __( 'Select the crop mode for this image size. This is generally the one soft-cropped image size we setup and it\'s definitely okay to change this to hard crop mode. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'square_small_crop',
 		'std' 	=> $defaults['square_small']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'square_small_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'square_small_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -453,12 +674,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
-		'desc' 	=> __( 'Select the crop mode for this image size. This is generally the one soft-cropped image size we setup and it\'s definitely okay to change this to hard crop mode. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'square_smaller_crop',
 		'std' 	=> $defaults['square_smaller']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'square_smaller_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'square_smaller_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -486,12 +733,38 @@ function tb_image_sizes_get_options() {
 		'type' 	=> 'text'
 	);
 	$options[] = array(
+		'type' 	=> 'subgroup_start',
+		'class'	=> 'show-hide-toggle'
+	);
+	$options[] = array(
 		'name' 	=> __( 'Crop Mode', 'tb_image_sizes' ),
-		'desc' 	=> __( 'Select the crop mode for this image size. This is generally the one soft-cropped image size we setup and it\'s definitely okay to change this to hard crop mode. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select the crop mode for this image size. We would advise that you do not change the crop mode for this image size. Click the <em>Help</em> tab above to learn more about crop modes.', 'tb_image_sizes' ),
 		'id' 	=> 'square_smallest_crop',
 		'std' 	=> $defaults['square_smallest']['crop'],
 		'type' 	=> 'select',
-		'options' => $crop_modes
+		'options' => $crop_modes,
+		'class'	=> 'trigger'
+	);
+	$options[] = array(
+		'name' 	=> __( 'X-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the x-axis.' ),
+		'id' 	=> 'square_smallest_x_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_x,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'name' 	=> __( 'Y-axis Crop Position', 'tb_image_sizes' ),
+		'desc' 	=> __( 'Select from where you\'d like the image croped on the y-axis.' ),
+		'id' 	=> 'square_smallest_y_crop_position',
+		'std' 	=> 'center',
+		'type' 	=> 'select',
+		'options' => $crop_positions_y,
+		'class'	=> 'hide receiver receiver-custom'
+	);
+	$options[] = array(
+		'type' => 'subgroup_end'
 	);
 	$options[] = array(
 		'type' => 'section_end'
@@ -811,6 +1084,10 @@ function tb_image_sizes_page() {
 
 function tb_image_sizes_apply_changes( $sizes ) {
 
+	// DEBUG - View Saved Options
+	// $settings = get_option('tb_image_sizes');
+	// echo '<pre>'; print_r($settings); echo '</pre>';
+
 	// Get current settings
 	$settings = get_option('tb_image_sizes');
 
@@ -823,10 +1100,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['slider-large']['height'] = $settings['sliderlarge_height'];
 
 	if( isset( $settings['sliderlarge_crop'] ) ) {
-		if( $settings['sliderlarge_crop'] == 'true' )
+		if( $settings['sliderlarge_crop'] == 'true' ) {
 			$sizes['slider-large']['crop'] = true;
-		else if( $settings['sliderlarge_crop'] == 'false' )
+		} else if( $settings['sliderlarge_crop'] == 'false' ) {
 			$sizes['slider-large']['crop'] = false;
+		} else if ( $settings['sliderlarge_crop'] == 'custom'  ) {
+			$sizes['slider-large']['crop'] = array( $settings['sliderlarge_x_crop_position'], $settings['sliderlarge_y_crop_position'] );
+		}
 	}
 
 	// Staged Image Slides
@@ -837,11 +1117,14 @@ function tb_image_sizes_apply_changes( $sizes ) {
 	if( isset( $settings['sliderstaged_height'] ) && $settings['sliderstaged_height'] )
 		$sizes['slider-staged']['height'] = $settings['sliderstaged_height'];
 
-	if( isset( $settings['sliderstaged_crop'] ) ) {
-		if( $settings['sliderstaged_crop'] == 'true' )
+	if( isset( $settings['sliderstagede_crop'] ) ) {
+		if( $settings['sliderstagede_crop'] == 'true' ) {
 			$sizes['slider-staged']['crop'] = true;
-		else if( $settings['sliderstaged_crop'] == 'false' )
+		} else if( $settings['sliderstagede_crop'] == 'false' ) {
 			$sizes['slider-staged']['crop'] = false;
+		} else if ( $settings['sliderstagede_crop'] == 'custom'  ) {
+			$sizes['slider-staged']['crop'] = array( $settings['sliderstagede_x_crop_position'], $settings['sliderstagede_y_crop_position'] );
+		}
 	}
 
 	// 1/5
@@ -853,10 +1136,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['grid_fifth_1']['height'] = $settings['grid_fifth_1_height'];
 
 	if( isset( $settings['grid_fifth_1_crop'] ) ) {
-		if( $settings['grid_fifth_1_crop'] == 'true' )
+		if( $settings['grid_fifth_1_crop'] == 'true' ) {
 			$sizes['grid_fifth_1']['crop'] = true;
-		else if( $settings['grid_fifth_1_crop'] == 'false' )
+		} else if( $settings['grid_fifth_1_crop'] == 'false' ) {
 			$sizes['grid_fifth_1']['crop'] = false;
+		} else if ( $settings['grid_fifth_1_crop'] == 'custom'  ) {
+			$sizes['grid_fifth_1']['crop'] = array( $settings['grid_fifth_1_x_crop_position'], $settings['grid_fifth_1_y_crop_position'] );
+		}
 	}
 
 	// 1/4
@@ -868,10 +1154,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['grid_3']['height'] = $settings['grid_3_height'];
 
 	if( isset( $settings['grid_3_crop'] ) ) {
-		if( $settings['grid_3_crop'] == 'true' )
+		if( $settings['grid_3_crop'] == 'true' ) {
 			$sizes['grid_3']['crop'] = true;
-		else if( $settings['grid_3_crop'] == 'false' )
+		} else if( $settings['grid_3_crop'] == 'false' ) {
 			$sizes['grid_3']['crop'] = false;
+		} else if ( $settings['grid_3_crop'] == 'custom'  ) {
+			$sizes['grid_3']['crop'] = array( $settings['grid_3_x_crop_position'], $settings['grid_3_y_crop_position'] );
+		}
 	}
 
 	// 1/3
@@ -883,10 +1172,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['grid_4']['height'] = $settings['grid_4_height'];
 
 	if( isset( $settings['grid_4_crop'] ) ) {
-		if( $settings['grid_4_crop'] == 'true' )
+		if( $settings['grid_4_crop'] == 'true' ) {
 			$sizes['grid_4']['crop'] = true;
-		else if( $settings['grid_4_crop'] == 'false' )
+		} else if( $settings['grid_4_crop'] == 'false' ) {
 			$sizes['grid_4']['crop'] = false;
+		} else if ( $settings['grid_4_crop'] == 'custom'  ) {
+			$sizes['grid_4']['crop'] = array( $settings['grid_4_x_crop_position'], $settings['grid_4_y_crop_position'] );
+		}
 	}
 
 	// 1/2
@@ -898,10 +1190,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['grid_6']['height'] = $settings['grid_6_height'];
 
 	if( isset( $settings['grid_6_crop'] ) ) {
-		if( $settings['grid_6_crop'] == 'true' )
+		if( $settings['grid_6_crop'] == 'true' ) {
 			$sizes['grid_6']['crop'] = true;
-		else if( $settings['grid_6_crop'] == 'false' )
+		} else if( $settings['grid_6_crop'] == 'false' ) {
 			$sizes['grid_6']['crop'] = false;
+		} else if ( $settings['grid_6_crop'] == 'custom'  ) {
+			$sizes['grid_6']['crop'] = array( $settings['grid_6_x_crop_position'], $settings['grid_6_y_crop_position'] );
+		}
 	}
 
 	// Small Thumbs
@@ -913,10 +1208,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['tb_small']['height'] = $settings['tb_small_height'];
 
 	if( isset( $settings['tb_small_crop'] ) ) {
-		if( $settings['tb_small_crop'] == 'true' )
+		if( $settings['tb_small_crop'] == 'true' ) {
 			$sizes['tb_small']['crop'] = true;
-		else if( $settings['tb_small_crop'] == 'false' )
+		} else if( $settings['tb_small_crop'] == 'false' ) {
 			$sizes['tb_small']['crop'] = false;
+		} else if ( $settings['tb_small_crop'] == 'custom'  ) {
+			$sizes['tb_small']['crop'] = array( $settings['tb_small_x_crop_position'], $settings['tb_small_y_crop_position'] );
+		}
 	}
 
 	// Small Squares
@@ -928,10 +1226,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['square_small']['height'] = $settings['square_small_height'];
 
 	if( isset( $settings['square_small_crop'] ) ) {
-		if( $settings['square_small_crop'] == 'true' )
+		if( $settings['square_small_crop'] == 'true' ) {
 			$sizes['square_small']['crop'] = true;
-		else if( $settings['square_small_crop'] == 'false' )
+		} else if( $settings['square_small_crop'] == 'false' ) {
 			$sizes['square_small']['crop'] = false;
+		} else if ( $settings['square_small_crop'] == 'custom'  ) {
+			$sizes['square_small']['crop'] = array( $settings['square_small_x_crop_position'], $settings['square_small_y_crop_position'] );
+		}
 	}
 
 	// Smaller Squares
@@ -943,10 +1244,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['square_smaller']['height'] = $settings['square_smaller_height'];
 
 	if( isset( $settings['square_smaller_crop'] ) ) {
-		if( $settings['square_smaller_crop'] == 'true' )
+		if( $settings['square_smaller_crop'] == 'true' ) {
 			$sizes['square_smaller']['crop'] = true;
-		else if( $settings['square_smaller_crop'] == 'false' )
+		} else if( $settings['square_smaller_crop'] == 'false' ) {
 			$sizes['square_smaller']['crop'] = false;
+		} else if ( $settings['square_smaller_crop'] == 'custom'  ) {
+			$sizes['square_smaller']['crop'] = array( $settings['square_smaller_x_crop_position'], $settings['square_smaller_y_crop_position'] );
+		}
 	}
 
 
@@ -959,10 +1263,13 @@ function tb_image_sizes_apply_changes( $sizes ) {
 		$sizes['square_smallest']['height'] = $settings['square_smallest_height'];
 
 	if( isset( $settings['square_smallest_crop'] ) ) {
-		if( $settings['square_smallest_crop'] == 'true' )
+		if( $settings['square_smallest_crop'] == 'true' ) {
 			$sizes['square_smallest']['crop'] = true;
-		else if( $settings['square_smallest_crop'] == 'false' )
+		} else if( $settings['square_smallest_crop'] == 'false' ) {
 			$sizes['square_smallest']['crop'] = false;
+		} else if ( $settings['square_smallest_crop'] == 'custom'  ) {
+			$sizes['square_smallest']['crop'] = array( $settings['square_smallest_x_crop_position'], $settings['square_smallest_y_crop_position'] );
+		}
 	}
 
 	return $sizes;
