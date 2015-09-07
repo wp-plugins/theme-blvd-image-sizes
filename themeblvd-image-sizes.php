@@ -2,7 +2,7 @@
 /*
 Plugin Name: Theme Blvd Image Sizes
 Description: Adjust the image crop sizes in a Theme Blvd theme through your WordPress admin.
-Version: 1.1.0
+Version: 1.1.1
 Author: Jason Bobich
 Author URI: http://jasonbobich.com
 License: GPL2
@@ -25,7 +25,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define( 'TB_IMAGE_SIZES_PLUGIN_VERSION', '1.1.0' );
+define( 'TB_IMAGE_SIZES_PLUGIN_VERSION', '1.1.1' );
 define( 'TB_IMAGE_SIZES_PLUGIN_DIR', dirname( __FILE__ ) );
 define( 'TB_IMAGE_SIZES_PLUGIN_URI', plugins_url( '' , __FILE__ ) );
 
@@ -201,9 +201,9 @@ function tb_image_sizes_admin() {
 
 	// Add options page
 	$args = array(
-		'parent'		=> 'tools.php',
-		'page_title' 	=> __( 'Theme Blvd Image Sizes', 'theme-blvd-image-sizes' ),
-		'menu_title' 	=> __( 'TB Image Sizes', 'theme-blvd-image-sizes' ),
+		'parent'		=> 'themes.php', // only used prior to framework 2.5.2
+		'page_title' 	=> __( 'Theme Image Sizes', 'theme-blvd-image-sizes' ),
+		'menu_title' 	=> __( 'Theme Image Sizes', 'theme-blvd-image-sizes' ),
 		'cap'			=> apply_filters( 'tb_image_sizes_cap', 'edit_theme_options' ),
 		'closer'		=> false // needed for framework 2.2-2.4, when options page has no tabs
 	);
